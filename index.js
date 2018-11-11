@@ -1,8 +1,6 @@
 const { channelId, ignoredChannels, token } = require('./settings.json')
 const { Client, RichEmbed } = require('discord.js')
-const Cat = new Client()
-
-const channel
+const Cat = new Client(), channel
 
 Cat
 .on('ready', () => {
