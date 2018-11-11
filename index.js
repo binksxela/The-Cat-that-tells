@@ -2,14 +2,16 @@ const { channelId, ignoredChannels, token } = require('./settings.json')
 const { Client, RichEmbed } = require('discord.js')
 const Cat = new Client()
 
+const channel
+
 Cat
-.on('ready', () => console.log('The cat want to tell a story'))
+.on('ready', () => {
+    channel = Cat.channels.get(channelId)   
+    console.log('The cat want to tell a story')
+})
 .on('message', message => {
 
     if(message.author.bot) return
-
-    const channel = Cat.channels.get(channelId)
-    const embed = new RichEmbed()
 
     if(message.channel === channel) return
     else ignoredChannels.forEach(channel => {
@@ -17,7 +19,7 @@ Cat
     })
 
     if(message.mentions.roles.first()) {
-        embed
+        const embed = new RichEmbed()
         .setColor([122, 226, 65])
         .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
         .addField('Channel', `<#${message.channel.id}> (${message.channel.name ? message.channel.name : 'ERROR'})`, true)
@@ -32,16 +34,13 @@ Cat
 
     if(message.author.bot) return
 
-    const channel = Cat.channels.get(channelId)
-    const embed = new RichEmbed()
-
     if(message.channel === channel) return
     else ignoredChannels.forEach(channel => {
         if(message.channel === Cat.channels.get(channel)) return
     })
 
     if(message.mentions.roles.first()) {
-        embed
+        const embed = new RichEmbed()
         .setColor([122, 226, 65])
         .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
         .addField('Channel', `<#${message.channel.id}> (${message.channel.name ? message.channel.name : 'ERROR'})`, true)
