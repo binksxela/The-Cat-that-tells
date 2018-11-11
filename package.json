@@ -1,0 +1,27 @@
+{
+  "name": "the_cat",
+  "version": "1.0.0",
+  "description": "A discord bot who send all messages was sent by everyone in only one channel for the moderation",
+  "main": "index.js",
+  "scripts": {
+    "test": "miaou"
+  },
+  "keywords": [
+    "le",
+    "chat",
+    "qui",
+    "racontait",
+    "des",
+    "histoires",
+    "discord",
+    "bot",
+    "channel",
+    "moderation",
+    "messages"
+  ],
+  "author": "Acaretia",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
