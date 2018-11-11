@@ -13,9 +13,8 @@ Cat
     if(message.author.bot) return
 
     if(message.channel === channel) return
-    else ignoredChannels.forEach(channel => {
-        if(message.channel === Cat.channels.get(channel)) return
-    })
+    for(let i = 0; i < ignoredChannels.length; i++)
+        if(message.channel === Cat.channels.get(ignoredChannels[i])) return
 
     if(message.mentions.roles.first()) {
         const embed = new RichEmbed()
@@ -34,9 +33,8 @@ Cat
     if(message.author.bot) return
 
     if(message.channel === channel) return
-    else ignoredChannels.forEach(channel => {
-        if(message.channel === Cat.channels.get(channel)) return
-    })
+    for(let i = 0; i < ignoredChannels.length; i++)
+        if(message.channel === Cat.channels.get(ignoredChannels[i])) return
 
     if(message.mentions.roles.first()) {
         const embed = new RichEmbed()
