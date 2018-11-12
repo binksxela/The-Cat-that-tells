@@ -35,7 +35,7 @@ Cat
 
     app.set('port', (process.env.PORT || 5000))
     app.get('/', (request, response) => {
-        response.sendFile(__dirname + './index.html')
+        response.sendFile(__dirname + '/index.html')
     }).listen(app.get('port'), () => {
         console.log("App is running, server is listening on port ", app.get('port'))
     })
