@@ -29,6 +29,7 @@
   "author": "Acaretia",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "express": "^4.16.4"
   }
 }

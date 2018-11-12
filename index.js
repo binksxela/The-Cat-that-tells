@@ -1,3 +1,6 @@
+const express = require('express')
+const app     = express()
+
 const { channelId, ignoredChannels, token } = require('./settings.json')
 const { Client, RichEmbed } = require('discord.js')
 const Cat = new Client()
@@ -6,7 +9,7 @@ let channel
 Cat
 .on('ready', () => {
     channel = Cat.channels.get(channelId)   
-    console.log('The cat want to tell a story')
+    console.log("The cat want to tell a story")
 })
 .on('message', message => {
 
@@ -21,7 +24,7 @@ Cat
         .setColor([122, 226, 65])
         .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
         .addField('Channel', `<#${message.channel.id}> (${message.channel.name ? message.channel.name : 'ERROR'})`, true)
-        .addField('Content', message.content ? message.content.substr(0, 500) : '❌ _Image(s)_')
+        .addField('Content', message.content ? message.content.substr(0, 500) : "❌ _Image(s)_")
         .setFooter(`Date: ${message.createdAt}`)
 
         return channel.send({ embed })
@@ -41,7 +44,7 @@ Cat
         .setColor([244, 95, 66])
         .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
         .addField('Channel', `<#${message.channel.id}> (${message.channel.name ? message.channel.name : 'ERROR'})`, true)
-        .addField('Content', message.content ? message.content.substr(0, 500) : '❌ _Image(s)_')
+        .addField('Content', message.content ? message.content.substr(0, 500) : "❌ _Image(s)_")
         .setFooter(`Date: ${message.createdAt}`)
 
         return channel.send({ embed })
@@ -50,3 +53,12 @@ Cat
 })
 
 Cat.login(token)
+
+app.set('port', (process.env.PORT || 5000))
+
+app.get('/', (request, response) => {
+    let result = "App is running | le Chat qui raconte"
+    response.send(result)
+}).listen(app.get('port'), () => {
+    console.log("App is running, server is listening on port ", app.get('port'))
+});
