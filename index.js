@@ -38,7 +38,7 @@ Cat
 
     if(message.mentions.roles.first()) {
         const embed = new RichEmbed()
-        .setColor([122, 226, 65])
+        .setColor([244, 95, 66])
         .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
         .addField('Channel', `<#${message.channel.id}> (${message.channel.name ? message.channel.name : 'ERROR'})`, true)
         .addField('Content', message.content ? message.content.substr(0, 500) : '❌ _Image(s)_')
