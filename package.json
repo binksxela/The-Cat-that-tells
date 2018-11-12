@@ -4,7 +4,7 @@
   "description": "A discord bot who send all messages was sent by everyone in only one channel for the moderation",
   "main": "index.js",
   "scripts": {
-    "test": "miaou"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
