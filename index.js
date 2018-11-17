@@ -5,7 +5,7 @@ const Cat = new Client()
 const toLog = (channel) => (message) => {
     // If the message was sent by a bot or on a specific channel, it's ignored
     const isSame = message.channel === channel
-    const isIgnored = ignoredChannels.some(channel => message.channek.id === channel)
+    const isIgnored = ignoredChannels.some(channel => message.channel.id === channel)
 
     if(message.author.bot || isSame || isIgnored || !message.mentions.roles.length) return
 
