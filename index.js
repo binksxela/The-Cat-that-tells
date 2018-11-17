@@ -4,9 +4,8 @@ const Cat = new Client()
 
 const toLog = (channel) => (message) => {
     // If the message was sent by a bot or on a specific channel, it's ignored
-    if(message.author.bot || message.channel === channel) return
-    for(let i = 0; i < ignoredChannels.length; i++)
-        if(message.channel === Cat.channels.get(ignoredChannels[i])) return
+    if(message.author.bot || message.channel === channel
+    || ignoredChannels.some(channel => message.channel.id === channel)) return
 
     // Check if the message contain a role mention
     if(message.mentions.roles.first()) {
