@@ -6,7 +6,8 @@ const toLog = (channel) => (message) => {
     // If the message was sent by a bot or on a specific channel, it's ignored
     if(message.author.bot
         || message.channel === channel
-        || ignoredChannels.some(channel => message.channel.id === channel)) return
+        || ignoredChannels.some(channel => message.channel.id === channel)
+    ) return
 
     // Check if the message contain a role mention
     if(message.mentions.roles.length) {
