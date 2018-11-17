@@ -23,8 +23,7 @@ const toLog = (channel) => (message) => {
     }
 }
 
-Cat
-.on('ready', () => {
+Cat.on('ready', () => {
     const channel = Cat.channels.get(channelId)   
     console.log('The cat want to tell a story')
     Cat.on('message', toLog(channel))
