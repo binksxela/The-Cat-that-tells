@@ -1,5 +1,5 @@
-const { channelId, ignoredChannels, token } = require('./settings.json')
-const { Client, RichEmbed } = require('discord.js')
+const { channelId, ignoredChannels, token } = require("./settings.json")
+const { Client, RichEmbed } = require("discord.js")
 const Cat = new Client()
 
 const toLog = (channel) => (message) => {
@@ -15,7 +15,7 @@ const toLog = (channel) => (message) => {
         .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL)
         .addField('Channel', `${message.channel} (${message.channel.name || 'ERROR'})`, true)
         .addField(`Go to the message`, `[Link](${message.url})`, true)
-        .addField('Content', message.content ? message.content.substr(0, 500) : '❌ _Image(s)_')
+        .addField('Content', message.content ? message.content.substr(0, 500) : "❌ _Image(s)_")
         .setTimestamp(message.createdAt)
         .setURL(message.url)
     // Log the message + the author in the log's channel
@@ -24,9 +24,9 @@ const toLog = (channel) => (message) => {
 
 Cat.on('ready', () => {
     const channel = Cat.channels.get(channelId)   
-    console.log('The cat want to tell a story')
-    Cat.on('message', toLog(channel))
-        .on('messageDelete', toLog(channel))
+    console.log("The cat want to tell a story")
+    Cat.on("message", toLog(channel))
+        .on("messageDelete", toLog(channel))
 })
 
 Cat.login(token)
