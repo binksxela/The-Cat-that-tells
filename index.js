@@ -1,6 +1,3 @@
-const express = require('express')
-const app     = express()
-
 const { channelId, ignoredChannels, token } = require('./settings.json')
 const { Client, RichEmbed } = require('discord.js')
 const Cat = new Client()
@@ -23,6 +20,7 @@ const toLog = (message) => {
         .addField('Channel', `<#${message.channel.id}> (${message.channel.name ? message.channel.name : 'ERROR'})`, true)
         .addField('Content', message.content ? message.content.substr(0, 500) : '❌ _Image(s)_')
         .setFooter(`Date: ${message.createdAt}`)
+        .setURL(message.url)
 
         // Log the message + the author in the log's channel
         return channel.send({ embed })
@@ -32,14 +30,6 @@ const toLog = (message) => {
 Cat
 .on('ready', () => {
     channel = Cat.channels.get(channelId)   
-
-    app.set('port', (process.env.PORT || 5000))
-    app.get('/', (request, response) => {
-        response.sendFile(__dirname + '/index.html')
-    }).listen(app.get('port'), () => {
-        console.log("App is running, server is listening on port ", app.get('port'))
-    })
-
     console.log('The cat want to tell a story')
 })
 .on('message', message => toLog(message))
