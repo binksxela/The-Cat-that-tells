@@ -13,7 +13,7 @@ const toLog = (channel) => (message) => {
     const embed = new RichEmbed()
         .setColor([122, 226, 65])
         .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
-        .addField('Channel', `${message.channel.toString()} (${message.channel.name ? message.channel.name : 'ERROR'})`, true)
+        .addField('Channel', `${message.channel} (${message.channel.name || 'ERROR'})`, true)
         .addField(`Go to the message`, `[Link](${message.url})`, true)
         .addField('Content', message.content ? message.content.substr(0, 500) : '❌ _Image(s)_')
         .setTimestamp(message.createdAt)
