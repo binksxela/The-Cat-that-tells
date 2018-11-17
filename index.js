@@ -8,7 +8,7 @@ const toLog = (channel) => (message) => {
     || ignoredChannels.some(channel => message.channel.id === channel)) return
 
     // Check if the message contain a role mention
-    if(message.mentions.roles.first()) {
+    if(message.mentions.roles.length) {
         const embed = new RichEmbed()
         .setColor([122, 226, 65])
         .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
