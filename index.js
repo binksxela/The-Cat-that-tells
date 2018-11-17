@@ -17,7 +17,6 @@ const toLog = (channel) => (message) => {
         .addField(`Go to the message`, `[Link](${message.url})`, true)
         .addField("Content", message.content ? message.content.substr(0, 500) : "❌ _Image(s)_")
         .setTimestamp(message.createdAt)
-        .setURL(message.url)
     // Log the message + the author in the log's channel
     return channel.send({ embed })
 }
