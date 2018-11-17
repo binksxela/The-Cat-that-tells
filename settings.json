@@ -1,7 +1,8 @@
 {
-    "channelId": "510877012207075348",
+    "channelId": "<Id of the channel where you want to receive the logs>",
     "ignoredChannels": [
-        "439718312499347466"
+        "<List of the different ignored rooms>",
+        "<Do not add the channelId, it's automatically ignored>",
     ],
-    "token": "NTEwODc4NTY5MTkxNDQwNDA1.DsiysQ.OWseuN7HlXaS0ou_5pglRAQ1-Rs"
+    "token": "<Token of your bot>",
 }
