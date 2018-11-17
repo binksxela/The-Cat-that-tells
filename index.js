@@ -33,7 +33,7 @@ Cat
     channel = Cat.channels.get(channelId)   
     console.log('The cat want to tell a story')
 })
-.on('message', message => toLog(message))
-.on('messageDelete', message => toLog(message))
+.on('message', toLog)
+.on('messageDelete', toLog)
 
 Cat.login(token)
