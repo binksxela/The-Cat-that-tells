@@ -1,14 +1,10 @@
 const { channelId, ignoredChannels, token } = require('./settings.json')
 const { Client, RichEmbed } = require('discord.js')
 const Cat = new Client()
-let channel
 
-const toLog = (message) => {
-    // If the message was sent by a bot, it's ignored
-    if(message.author.bot) return
-
-    // Ignore all messages was sent in a specific channel
-    if(message.channel === channel) return
+const toLog = (channel) => (message) => {
+    // If the message was sent by a bot or on a specific channel, it's ignored
+    if(message.author.bot || message.channel === channel) return
     for(let i = 0; i < ignoredChannels.length; i++)
         if(message.channel === Cat.channels.get(ignoredChannels[i])) return
 
@@ -30,10 +26,10 @@ const toLog = (message) => {
 
 Cat
 .on('ready', () => {
-    channel = Cat.channels.get(channelId)   
+    const channel = Cat.channels.get(channelId)   
     console.log('The cat want to tell a story')
+    Cat.on('message', toLog(channel))
+    .on('messageDelete', toLog(channel))
 })
-.on('message', toLog)
-.on('messageDelete', toLog)
 
 Cat.login(token)
