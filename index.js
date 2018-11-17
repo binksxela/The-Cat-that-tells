@@ -18,9 +18,9 @@ const toLog = (message) => {
         .setColor([122, 226, 65])
         .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
         .addField('Channel', `<#${message.channel.id}> (${message.channel.name ? message.channel.name : 'ERROR'})`, true)
+        .addField(`Go to the message`, `[Link](${message.url})`, true)
         .addField('Content', message.content ? message.content.substr(0, 500) : '❌ _Image(s)_')
         .setFooter(`Date: ${message.createdAt}`)
-        .setURL(message.url)
 
         // Log the message + the author in the log's channel
         return channel.send({ embed })
