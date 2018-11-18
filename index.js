@@ -25,7 +25,6 @@ Cat.on("ready", () => {
     const channel = Cat.channels.get(channelId)   
     console.log("The cat want to tell a story")
     Cat.on("message", toLog(channel))
-        .on("messageDelete", toLog(channel))
 })
 
 Cat.login(token)
